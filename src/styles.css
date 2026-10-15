@@ -91,34 +91,17 @@
   }
 }
 
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none; }
+@utility btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none bg-primary text-primary-foreground hover:bg-primary/85; }
+@utility btn-brand { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none bg-brand text-brand-foreground hover:bg-brand/90; }
+@utility btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none text-foreground hover:bg-accent; }
+@utility btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none border border-border bg-background hover:bg-accent; }
+@utility field { @apply w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none transition focus:border-ring focus:ring-2 focus:ring-ring/20 placeholder:text-muted-foreground; }
+@utility panel { @apply rounded-2xl border border-border bg-card; }
+@utility eyebrow { @apply text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground; }
+
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none;
-  }
-  .btn-primary {
-    @apply btn bg-primary text-primary-foreground hover:bg-primary/85;
-  }
-  .btn-brand {
-    @apply btn bg-brand text-brand-foreground hover:bg-brand/90;
-  }
-  .btn-ghost {
-    @apply btn text-foreground hover:bg-accent;
-  }
-  .btn-outline {
-    @apply btn border border-border bg-background hover:bg-accent;
-  }
-  .field {
-    @apply w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none transition focus:border-ring focus:ring-2 focus:ring-ring/20 placeholder:text-muted-foreground;
-  }
-  .panel {
-    @apply rounded-2xl border border-border bg-card;
-  }
-  .eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground;
-  }
-  .prose-ai {
-    @apply text-sm leading-relaxed text-foreground;
-  }
+  .prose-ai { @apply text-sm leading-relaxed text-foreground; }
   .prose-ai h1, .prose-ai h2, .prose-ai h3 {
     @apply mt-4 mb-2 font-semibold;
   }
