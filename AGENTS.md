@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture
+- AI calls live in `src/routes/api/ai.ts` (tool text stream) and `src/routes/api/chat.ts`; prompts in `src/server/ai.server.ts` — keeps keys and prompts server-side.
+- Signed-in pages live under the `_app` layout route, which guards auth client-side.
