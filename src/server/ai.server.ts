@@ -5,7 +5,7 @@ export const MODEL = "openai/gpt-6-astra";
 const RUN_ID = "X-Lovable-AIG-Run-ID";
 
 export function createProvider(request: Request) {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new Error("LOVABLE_API_KEY is not set");
   let runId = request.headers.get(RUN_ID)?.trim() || undefined;
   return createOpenAI({
@@ -35,7 +35,7 @@ export const PROVIDER_OPTIONS = {
 export async function verifyUser(request: Request) {
   const token = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (!token) return null;
-  const sb = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, {
+  const sb = createClient(process.env['SUPABASE_URL']!, process.env['SUPABASE_PUBLISHABLE_KEY']!, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
   const { data, error } = await sb.auth.getUser(token);

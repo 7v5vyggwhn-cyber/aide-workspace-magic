@@ -12,7 +12,7 @@ export const Route = createFileRoute("/api/chat")({
         const provider = createProvider(request);
         const result = streamText({
           model: provider.responses(MODEL),
-          system: SYSTEM_PROMPTS.chat,
+          system: SYSTEM_PROMPTS['chat']!,
           messages: await convertToModelMessages(messages.slice(-40)),
           abortSignal: request.signal,
           providerOptions: PROVIDER_OPTIONS,

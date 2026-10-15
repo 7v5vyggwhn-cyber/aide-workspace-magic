@@ -10,14 +10,14 @@ export const Route = createFileRoute("/_app")({
 });
 
 const nav = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/tools/email", label: "Email Generator", icon: Mail },
-  { to: "/tools/notes", label: "Meeting Notes", icon: NotebookPen },
-  { to: "/tools/planner", label: "Task Planner", icon: CalendarClock },
-  { to: "/tools/research", label: "Research", icon: Search },
-  { to: "/chat", label: "Chat", icon: MessagesSquare },
-  { to: "/history", label: "History", icon: History },
-  { to: "/integrations", label: "Integrations", icon: Plug },
+  { to: "/dashboard", params: {}, label: "Dashboard", icon: LayoutDashboard },
+  { to: "/tools/$tool", params: { tool: "email" }, label: "Email Generator", icon: Mail },
+  { to: "/tools/$tool", params: { tool: "notes" }, label: "Meeting Notes", icon: NotebookPen },
+  { to: "/tools/$tool", params: { tool: "planner" }, label: "Task Planner", icon: CalendarClock },
+  { to: "/tools/$tool", params: { tool: "research" }, label: "Research", icon: Search },
+  { to: "/chat", params: {}, label: "Chat", icon: MessagesSquare },
+  { to: "/history", params: {}, label: "History", icon: History },
+  { to: "/integrations", params: {}, label: "Integrations", icon: Plug },
 ] as const;
 
 function AppLayout() {
@@ -40,8 +40,9 @@ function AppLayout() {
         <nav className="mt-8 flex-1 space-y-0.5">
           {nav.map((n) => (
             <Link
-              key={n.to}
+              key={n.label}
               to={n.to}
+              params={n.params as never}
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-foreground"
               activeProps={{ className: "bg-sidebar-accent !text-foreground font-medium" }}
             >
@@ -63,7 +64,7 @@ function AppLayout() {
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex items-center gap-1 overflow-x-auto border-b border-border px-4 py-3 md:hidden">
           {nav.map((n) => (
-            <Link key={n.to} to={n.to} className="btn-ghost h-8 shrink-0 px-2" activeProps={{ className: "bg-accent" }} aria-label={n.label}>
+            <Link key={n.label} to={n.to} params={n.params as never} className="btn-ghost h-8 shrink-0 px-2" activeProps={{ className: "bg-accent" }} aria-label={n.label}>
               <n.icon className="h-4 w-4" />
             </Link>
           ))}

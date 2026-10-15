@@ -17,7 +17,7 @@ export const Route = createFileRoute("/api/ai")({
         const provider = createProvider(request);
         const result = streamText({
           model: provider.responses(MODEL),
-          system: SYSTEM_PROMPTS[tool],
+          system: SYSTEM_PROMPTS[tool]!,
           messages: [{ role: "user", content: input }],
           abortSignal: request.signal,
           providerOptions: PROVIDER_OPTIONS,
