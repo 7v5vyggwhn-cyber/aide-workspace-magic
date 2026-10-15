@@ -38,7 +38,7 @@ function ChatPage() {
       key={key}
       initial={initial}
       onReset={async () => {
-        await supabase.from("chat_conversations").delete().neq("messages", "null");
+        await supabase.from("chat_conversations").delete().not("user_id", "is", null);
         setInitial([]);
         setKey((k) => k + 1);
       }}
@@ -109,7 +109,7 @@ function ChatWindow({ initial, onReset }: { initial: UIMessage[]; onReset: () =>
         {error && <p className="text-sm text-destructive">{error.message}</p>}
         <div ref={bottom} />
       </div>
-      <Composer rows={2} autoFocus placeholder="Message AdelAIde…" running={busy} onStop={stop} onSubmit={(text) => sendMessage({ text })} />
+      <Composer clearOnSubmit rows={2} autoFocus placeholder="Message AdelAIde…" running={busy} onStop={stop} onSubmit={(text) => sendMessage({ text })} />
     </div>
   );
 }

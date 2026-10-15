@@ -56,6 +56,7 @@ export function Composer({
   onStop,
   rows = 4,
   autoFocus,
+  clearOnSubmit,
 }: {
   placeholder: string;
   running: boolean;
@@ -63,11 +64,13 @@ export function Composer({
   onStop?: () => void;
   rows?: number;
   autoFocus?: boolean;
+  clearOnSubmit?: boolean;
 }) {
   const [value, setValue] = useState("");
   const submit = () => {
     if (!value.trim() || running) return;
     onSubmit(value.trim());
+    if (clearOnSubmit) setValue("");
   };
   return (
     <div className="panel p-2 shadow-sm focus-within:border-ring transition">
