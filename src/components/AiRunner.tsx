@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { ArrowUp, Copy, Check, Square } from "lucide-react";
 import { authHeader } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -126,7 +127,7 @@ export function Output({ output, running, error }: { output: string; running: bo
       </div>
       {output ? (
         <div className="prose-ai">
-          <ReactMarkdown>{output}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{output}</ReactMarkdown>
         </div>
       ) : (
         <div className="space-y-2">
