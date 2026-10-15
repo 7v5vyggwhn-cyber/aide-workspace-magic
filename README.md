@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Aide Workspace Magic
+
+design and build one AI powered productivity application that helps automate workplace tasks using AI. The application name is AdelAIde. AdelAIde should include smart email generator, meeting notes summarizer, AI task planner/ scheduler, AI research assistant, AI chatbot interface. The application should feature Dashboard with task inbox, AI task automation if a user types" summarize this report" or "draft an email to a client about delivery address" the AI executes. History log automated tasks, clean modern UI- white background, minimal. Connect to Gmail, Google calender slack.
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://aide-workspace-magic.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/cd8f74b7-5c7d-4ffe-9012-375d74489d05).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
