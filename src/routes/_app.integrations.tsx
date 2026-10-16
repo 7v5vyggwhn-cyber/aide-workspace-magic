@@ -27,14 +27,14 @@ function Integrations() {
     <div>
       <PageHeader eyebrow="Connections" title="Integrations" description="Connect your own accounts so AdelAIde can act on your behalf." />
       <ul className="grid gap-3 sm:grid-cols-3">
-        {items.map((i) => (
+        {items.map((i) => { const live = i.name === "Google Calendar"; return (
           <li key={i.name} className="panel flex flex-col p-5">
             <i.icon className="h-5 w-5 text-brand" />
             <h3 className="mt-4 font-medium">{i.name}</h3>
             <p className="mt-1 flex-1 text-sm text-muted-foreground">{i.text}</p>
-            <button className="btn-outline mt-5" disabled>Coming soon</button>
+            {live ? <span className="mt-5 rounded-lg bg-brand-soft px-3 py-2 text-center text-sm font-medium text-brand">Connected</span> : <button className="btn-outline mt-5" disabled>Coming soon</button>}
           </li>
-        ))}
+        ); })}
       </ul>
     </div>
   );
