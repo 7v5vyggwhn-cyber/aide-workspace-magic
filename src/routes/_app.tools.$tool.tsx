@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Composer, Output, useAiRun } from "@/components/AiRunner";
 import { PageHeader } from "@/components/PageHeader";
 import { TOOLS } from "@/lib/tools";
+import { AddToCalendar } from "@/components/AddToCalendar";
 
 export const Route = createFileRoute("/_app/tools/$tool")({
   loader: ({ params }) => {
@@ -36,6 +37,7 @@ function ToolView({ id }: { id: keyof typeof TOOLS }) {
       <Composer rows={id === "notes" ? 10 : 5} autoFocus placeholder={t.placeholder} running={ai.running} onSubmit={ai.run} onStop={ai.stop} />
       <div className="mt-6">
         <Output output={ai.output} running={ai.running} error={ai.error} />
+        {id === "planner" && ai.output && !ai.running && <AddToCalendar key={ai.output.length} plan={ai.output} />}
       </div>
     </div>
   );

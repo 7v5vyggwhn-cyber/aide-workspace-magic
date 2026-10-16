@@ -33,5 +33,6 @@ export const TOOLS: Record<
 export const TOOL_LABEL: Record<string, string> = {
   auto: "Automation",
   chat: "Chat",
+  calendar: "Calendar",
   ...Object.fromEntries(Object.entries(TOOLS).map(([k, v]) => [k, v.short])),
 };
