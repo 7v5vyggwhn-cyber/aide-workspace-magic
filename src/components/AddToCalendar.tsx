@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CalendarPlus, ExternalLink } from "lucide-react";
-import { addPlanToCalendar } from "@/server/calendar.functions";
+import { addPlanToCalendar } from "@/lib/functions/calendar.functions";
 import { supabase } from "@/integrations/supabase/client";
 
 export function AddToCalendar({ plan }: { plan: string }) {

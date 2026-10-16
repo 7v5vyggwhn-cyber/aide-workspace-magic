@@ -9,7 +9,7 @@ type Ev = { title: string; start: string; end: string; description?: string };
 
 export const addPlanToCalendar = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((d: { plan: string; timeZone: string; now: string }) => {
+  .validator((d: { plan: string; timeZone: string; now: string }) => {
     if (!d?.plan || d.plan.length > 30000) throw new Error("Invalid plan");
     return { plan: d.plan, timeZone: String(d.timeZone || "UTC").slice(0, 64), now: String(d.now).slice(0, 40) };
   })
